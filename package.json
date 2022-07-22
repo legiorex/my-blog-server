@@ -1,25 +1,34 @@
 {
-  "name": "my-blog-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "type": "module",
-  "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
-  },
-  "author": "Konstantin Batyushev",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/node": "^18.0.6",
-    "concurrently": "^7.3.0",
-    "nodemon": "^2.0.19",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1"
-  }
+    "name": "my-blog-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "npx tsc",
+        "start": "node dist/index.js",
+        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+    },
+    "author": "Konstantin Batyushev",
+    "license": "ISC",
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+        "@types/express": "^4.17.13",
+        "@types/node": "^18.0.6",
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
+        "@typescript-eslint/parser": "^5.30.7",
+        "babel-eslint": "^10.1.0",
+        "concurrently": "^7.3.0",
+        "eslint": "^8.20.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "nodemon": "^2.0.19",
+        "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1"
+    }
 }
