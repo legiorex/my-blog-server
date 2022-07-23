@@ -1,13 +1,15 @@
-import { Schema, model } from 'mongoose'
+import mongoose from 'mongoose'
 
-type User = {
+const { Schema, model } = mongoose
+
+export type UserType = {
     fullName: string
     email: string
     passwordHash: string
     avatarUrl?: string
 }
 
-const UserSchema = new Schema<User>(
+const UserSchema = new Schema<UserType>(
     {
         fullName: {
             type: String,
