@@ -13,13 +13,15 @@
         "baseUrl": ".",
         "sourceMap": true,
         "target": "es2016",
-        "module": "ESNext"
+        "module": "ESNext",
+        "typeRoots": ["./custom.d.ts"]
     },
     "ts-node": {
         "esm": true,
         "experimentalSpecifierResolution": "node",
         "experimentalResolver": true
     },
-    "include": ["**/*.ts"],
+    "files": ["custom.d.ts"],
+    "include": ["**/*.ts", "*.d.ts"],
     "exclude": ["node_modules"]
 }
