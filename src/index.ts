@@ -1,20 +1,23 @@
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
+import jwt from 'jsonwebtoken'
 
 dotenv.config()
+const port = process.env.PORT
 
 const app: Express = express()
-const port = process.env.PORT
+app.use(express.json())
 
 app.get('/', (request: Request, response: Response) => {
     response.send('Hello world!!!!!!!!!!!!!!')
 })
 
 app.post('/auth/login', (request: Request, response: Response) => {
-    console.log('!')
+    const token = jwt.sign({ email: request.body.email }, `${process.env.SECRET}`)
 
     response.json({
         success: true,
+        token,
     })
 })
 
