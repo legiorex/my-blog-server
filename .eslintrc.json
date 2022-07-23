@@ -10,5 +10,12 @@
         "sourceType": "module"
     },
     "plugins": ["@typescript-eslint", "prettier"],
-    "rules": { "prettier/prettier": "error", "no-console": "off" }
+    "rules": {
+        "prettier/prettier": "error",
+        "no-console": "off",
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
+        "no-underscore-dangle": "off"
+    }
 }
