@@ -2,9 +2,11 @@ import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
 import mongoose from 'mongoose'
 
+import * as PostController from './controllers/PostController'
 import * as UserController from './controllers/UserController'
 import checkAuth from './utils/checkAuth'
-import { registerValidator } from './validations/auth'
+import { signInValidator, signUpValidator } from './validations/auth'
+import { postCreateValidation } from './validations/post'
 
 dotenv.config()
 const port = process.env.PORT
@@ -23,11 +25,17 @@ app.get('/', (request: Request, response: Response) => {
     response.send('Hello world!!!!!!!!!!!!!!')
 })
 
-app.post('/auth/sign-in', UserController.singIn)
+// User routes
+app.post('/auth/sign-in', signInValidator, UserController.singIn)
+app.post('/auth/sign-up', signUpValidator, UserController.signUp)
+app.get('/post', checkAuth, UserController.getUser)
 
-app.post('/auth/sign-up', registerValidator, UserController.signUp)
-
-app.get('/auth/user', checkAuth, UserController.getUser)
+// Posts routes
+app.get('/posts', PostController.getAll)
+app.get('/posts/:id', PostController.getOne)
+app.post('/posts', checkAuth, postCreateValidation, PostController.create)
+app.delete('/posts', checkAuth, PostController.remove)
+app.patch('/posts/:id', checkAuth, PostController.update)
 
 app.listen(port, () => console.log(`⚡️ Running on port ${port} ⚡️`)).on('error', (error) => {
     console.log('☢️💥 error 💥☢️', error)

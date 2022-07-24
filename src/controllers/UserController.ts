@@ -2,8 +2,6 @@ import bcrypt from 'bcrypt'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 
-// import jwt from 'jsonwebtoken'
-// import mongoose from 'mongoose'
 import UserModel, { UserType } from '../models/User'
 import { getToken } from '../utils/helpers'
 
