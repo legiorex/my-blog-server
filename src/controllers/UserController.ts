@@ -1,9 +1,8 @@
 import bcrypt from 'bcrypt'
 import { Request, Response } from 'express'
-import { validationResult } from 'express-validator'
 
 import UserModel, { UserType } from '../models/User'
-import { getToken } from '../utils/helpers'
+import { getToken } from '../utils'
 
 export const getUser = async (request: Request, response: Response) => {
     try {
@@ -32,12 +31,6 @@ export const getUser = async (request: Request, response: Response) => {
 
 export const signUp = async (request: Request, response: Response) => {
     try {
-        const errors = validationResult(request)
-
-        if (!errors.isEmpty()) {
-            return response.status(400).json(errors.array())
-        }
-
         const { email, fullName, avatarUrl, password } = request.body
 
         const salt = await bcrypt.genSalt(10)
