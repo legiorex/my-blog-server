@@ -3,8 +3,8 @@
 /.vscode
 /dist
 
-# testing
 /coverage
+/uploads
 
 # debug
 npm-debug.log*
