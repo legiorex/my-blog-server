@@ -2,12 +2,12 @@
     "name": "my-blog-server",
     "version": "1.0.0",
     "description": "",
-    "main": "dist/index.js",
+    "main": "dist/index",
     "type": "module",
     "types": ".ts",
     "scripts": {
         "build": "npx tsc",
-        "start": "node --experimental-specifier-resolution=node dist/index",
+        "start": "node --experimental-modules --es-module-specifier-resolution=node dist/index",
         "postinstall": "tsc",
         "deploy": "git add . && git commit -m Heroku && git push heroku master",
         "dev": "nodemon"
