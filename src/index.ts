@@ -20,9 +20,7 @@ dotenv.config()
 const port = process.env.PORT
 
 mongoose
-    .connect(
-        `mongodb+srv://admin:${process.env.DB_PASS}@cluster0.2kaywu0.mongodb.net/blog-db?retryWrites=true&w=majority`,
-    )
+    .connect(`${process.env.DB_URL}`)
     .then(() => console.log('DB Ok'))
     .catch((error) => console.log('DB error', error))
 
