@@ -4,6 +4,7 @@
 /dist/*
 
 /coverage
+src/uploads/*
 
 # debug
 npm-debug.log*
