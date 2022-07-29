@@ -56,7 +56,7 @@ app.get('/posts', PostController.getAll)
 app.get('/posts/:id', PostController.getOne)
 app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create)
 app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update)
-app.delete('/posts', checkAuth, PostController.remove)
+app.delete('/posts/:id', checkAuth, PostController.remove)
 
 // Uploads routes
 

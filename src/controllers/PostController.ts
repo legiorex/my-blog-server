@@ -50,7 +50,7 @@ export const getOne = async (request: Request, response: Response) => {
 
 export const remove = async (request: Request, response: Response) => {
     try {
-        const post = await PostModel.findByIdAndDelete(request.body.id)
+        const post = await PostModel.findByIdAndDelete(request.params.id)
             .populate({
                 path: 'user',
                 select: 'fullName email avatarUrl',
