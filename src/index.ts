@@ -6,9 +6,9 @@ import multer from 'multer'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { PostController, UserController } from './controllers'
-import { checkAuth, handleValidationErrors } from './utils'
-import { postCreateValidation, signInValidator, signUpValidator } from './validations'
+import { PostController, UserController } from './controllers/index.js'
+import { checkAuth, handleValidationErrors } from './utils/index.js'
+import { postCreateValidation, signInValidator, signUpValidator } from './validations/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 

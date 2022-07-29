@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import PostModel from '../models/Post'
+import PostModel from '../models/Post.js'
 
 export const getAll = async (_: Request, response: Response) => {
     try {

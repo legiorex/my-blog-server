@@ -5,17 +5,19 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
-        "moduleResolution": "Node",
+        "moduleResolution": "NodeNext",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "incremental": true,
         "outDir": "./dist",
         "baseUrl": "./src",
         "sourceMap": true,
-        "target": "ES2015",
+        "target": "ES2022",
         "module": "ES2022",
         "typeRoots": ["./custom.d.ts"],
-        "lib": ["ES2015"]
+        "lib": ["ESNext"],
+        "types": ["node"],
+        "allowSyntheticDefaultImports": true
     },
     "ts-node": {
         "esm": true,

@@ -1,2 +1,2 @@
-export * as PostController from './PostController'
-export * as UserController from './UserController'
+export * as PostController from './PostController.js'
+export * as UserController from './UserController.js'

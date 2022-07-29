@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt'
 import { Request, Response } from 'express'
 
-import UserModel, { UserType } from '../models/User'
-import { getToken } from '../utils'
+import UserModel, { UserType } from '../models/User.js'
+import { getToken } from '../utils/index.js'
 
 export const getUser = async (request: Request, response: Response) => {
     try {
