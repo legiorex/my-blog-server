@@ -32,6 +32,11 @@ export const getOne = async (request: Request, response: Response) => {
                 returnDocument: 'after',
             },
         )
+            .populate({
+                path: 'user',
+                select: 'fullName email avatarUrl',
+            })
+            .exec()
 
         if (!post) {
             return response.status(404).json({
