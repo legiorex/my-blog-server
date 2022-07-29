@@ -1,6 +1,7 @@
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
+import fs from 'fs'
 import mongoose from 'mongoose'
 import multer from 'multer'
 import path from 'path'
@@ -17,7 +18,7 @@ const __dirname = path.dirname(__filename)
 const uploadsDir = path.join(__dirname, '/uploads/')
 
 dotenv.config()
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 
 mongoose
     .connect(`${process.env.DB_URL}`)
@@ -28,6 +29,10 @@ const app: Express = express()
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {
+        if (!fs.existsSync(path.join(__dirname, 'uploads'))) {
+            fs.mkdirSync(path.join(__dirname, 'uploads'))
+        }
+
         cb(null, uploadsDir)
     },
     filename: (_, file, cb) => {
