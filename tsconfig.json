@@ -12,9 +12,10 @@
         "outDir": "./dist",
         "baseUrl": "./src",
         "sourceMap": true,
-        "target": "ES2019",
+        "target": "ES2015",
         "module": "ES2022",
-        "typeRoots": ["./custom.d.ts"]
+        "typeRoots": ["./custom.d.ts"],
+        "lib": ["ES2015"]
     },
     "ts-node": {
         "esm": true,

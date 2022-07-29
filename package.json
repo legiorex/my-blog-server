@@ -6,8 +6,8 @@
     "type": "module",
     "types": ".ts",
     "scripts": {
-        "build": "tsc",
-        "start": "node --experimental-specifier-resolution=node dist/index.js",
+        "build": "npx tsc",
+        "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node dist/index.js",
         "postinstall": "tsc",
         "deploy": "git add . && git commit -m Heroku && git push heroku master",
         "dev": "nodemon"
