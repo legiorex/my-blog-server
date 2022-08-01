@@ -7,9 +7,8 @@ import multer from 'multer'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { PostController, UserController } from './controllers/index.js'
-import { checkAuth, handleValidationErrors } from './utils/index.js'
-import { postCreateValidation, signInValidator, signUpValidator } from './validations/index.js'
+import routes from './routes/routes.js'
+import { checkAuth } from './utils/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 
@@ -45,21 +44,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/uploads', express.static(uploadsDir))
 
-app.get('/', (request: Request, response: Response) => {
-    response.send('Hello world!!!!!!!!!!!!!!')
-})
-
-// User routes
-app.post('/auth/sign-in', signInValidator, handleValidationErrors, UserController.singIn)
-app.post('/auth/sign-up', signUpValidator, handleValidationErrors, UserController.signUp)
-app.get('/user', checkAuth, UserController.getUser)
-
-// Posts routes
-app.get('/posts', PostController.getAll)
-app.get('/posts/:id', PostController.getOne)
-app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create)
-app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update)
-app.delete('/posts/:id', checkAuth, PostController.remove)
+app.use('/', routes)
 
 // Uploads routes
 
@@ -74,3 +59,5 @@ app.post('/uploads', checkAuth, upload.single('image'), async (request: Request,
 app.listen(port, () => console.log(`⚡️ Running on port ${port} ⚡️`)).on('error', (error) => {
     console.log('☢️💥 error 💥☢️', error)
 })
+
+export default app
